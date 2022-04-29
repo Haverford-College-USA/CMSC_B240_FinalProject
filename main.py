@@ -318,6 +318,7 @@ def AssemblyGeneratorKevin(file):
                         else:
                             constantLocation.append(location - 1)
                     if array[location + 1] not in usedParameters:
+                        constantLocation.append(location + 1)
                         if array[location + 1] not in allLocalVars and not array[location + 1].isdigit():
                             return "Error: variable " + array[location + 1] + " is undeclared."
                         else:
@@ -329,7 +330,7 @@ def AssemblyGeneratorKevin(file):
                     usedParameterCounter] + "\n"
                 output.append(instr)
                 regNum += 1
-            print(constantLocation)
+
             for location in constantLocation:
                 instr = "AND R" + str(regNum) + ", R" + str(regNum) + ", 0; clear R" + str(regNum) + "\n"
                 output.append(instr)
@@ -374,6 +375,7 @@ def AssemblyGeneratorKevin(file):
                         else:
                             constantLocation.append(location - 1)
                     if array[location + 1] not in usedParameters:
+                        constantLocation.append(location + 1)
                         if array[location + 1] not in allLocalVars and not array[location + 1].isdigit():
                             return "Error: variable " + array[location + 1] + " is undeclared."
                         else:
